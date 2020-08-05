@@ -1,4 +1,4 @@
-import 'package:belajar2/36_1_post_resut_model.dart';
+import 'package:belajar2/GET/37_user_model.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -10,11 +10,12 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   // ignore: avoid_init_to_null
-  PostResult postResult = null;
+  User user = null;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -33,28 +34,22 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              Text((postResult != null)
-                  ? postResult.id +
-                      " | " +
-                      postResult.name +
-                      " | " +
-                      postResult.job +
-                      " | " +
-                      postResult.created
+              Text((user != null)
+                  ? user.id + " | " + user.name + " | "
                   : "Tidak Ada Data"),
               RaisedButton(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
                 ),
                 onPressed: () {
-                  PostResult.connectToAPI("Yudha", "Belajar").then((value) {
-                    postResult = value;
+                  User.connetToAPI("2").then((value) {
+                    user = value;
                     setState(() {});
                   });
                 },
                 color: Colors.cyan,
                 child: Text(
-                  "POST",
+                  "GET",
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: "poppins",
