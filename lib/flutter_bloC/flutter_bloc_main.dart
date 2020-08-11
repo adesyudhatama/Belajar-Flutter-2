@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'color_bloc.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,22 +16,6 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          FloatingActionButton(
-            backgroundColor: Colors.pink,
-            onPressed: () {},
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          FloatingActionButton(
-            backgroundColor: Colors.purple,
-            onPressed: () {},
-          ),
-        ],
-      ),
       appBar: AppBar(
         leading: Icon(Icons.adb),
         title: Text(
@@ -51,11 +34,37 @@ class MainPage extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: AnimatedContainer(
-          width: 100,
-          height: 100,
-          color: Colors.pink,
-          duration: Duration(seconds: 1),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "0",
+              style: TextStyle(
+                fontFamily: "poppins",
+                fontSize: 80,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FloatingActionButton(
+                  onPressed: () {},
+                  child: Icon(Icons.arrow_downward),
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                FloatingActionButton(
+                  onPressed: () {},
+                  child: Icon(Icons.arrow_upward),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
